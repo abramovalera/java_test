@@ -30,7 +30,9 @@ allure {
 
 dependencies {
     testImplementation(
+            'com.codeborne:selenide:7.0.4',
             'org.junit.jupiter:junit-jupiter:5.10.2',
+            'org.slf4j:slf4j-simple:2.0.9'
     )
 }
 
