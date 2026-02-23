@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-@DisplayName("Тест")
+@DisplayName("Тест для примера сайт -> the-internet.herokuapp.com/")
 public class SimpleTest extends TestBase {
 
 
