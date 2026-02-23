@@ -31,6 +31,8 @@ allure {
 dependencies {
     testImplementation(
             'com.codeborne:selenide:7.0.4',
+            'io.qameta.allure:allure-selenide:2.32.0',
+            'org.aeonbits.owner:owner:1.0.12',
             'org.junit.jupiter:junit-jupiter:5.10.2',
             'org.slf4j:slf4j-simple:2.0.9'
     )
@@ -38,10 +40,22 @@ dependencies {
 
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
+    systemProperty "file.encoding", "UTF-8"
+    systemProperty "env", System.getProperty("env", "local")
+    if (System.getProperty("browser") != null) {
+        systemProperty "browser", System.getProperty("browser")
+    }
+    if (System.getProperty("browserVersion") != null) {
+        systemProperty "browserVersion", System.getProperty("browserVersion")
+    }
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
 }
