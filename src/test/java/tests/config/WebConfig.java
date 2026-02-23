@@ -7,25 +7,24 @@ import org.aeonbits.owner.Config;
 })
 public interface WebConfig extends Config {
 
+
     @Key("baseUrl")
     @DefaultValue("https://the-internet.herokuapp.com")
     String getBaseUrl();
 
-    /* Имя браузера: chrome, firefox, yandex. */
     @Key("browser")
     String getBrowser();
 
-    /* Версия браузера. */
     @Key("browserVersion")
     @DefaultValue("")
     String getBrowserVersion();
 
-    /* true -> использовать RemoteWebDriver (Selenoid), false -> локальный браузер. */
+    /* true -> использовать Selenoid, false -> локальный браузер */
     @Key("isRemote")
     @DefaultValue("false")
     boolean isRemote();
 
-    /* URL удаленного Selenium endpoint, например: http://localhost:4444/wd/hub. */
+    /* URL удаленного Selenide */
     @Key("remoteUrl")
     @DefaultValue("")
     String getRemoteURL();
